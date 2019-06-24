@@ -1,12 +1,22 @@
 {
   "name": "electron-transponder",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Lightweight library that brings a request/response-like communication to Electron",
+  "main": "dist/index.js",
+  "source": "./src/index.ts",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.umd.js",
+  "script": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
   },
-  "keywords": [],
+  "keywords": ["electron", "pubsub"],
   "author": "Antonin Januska <@antjanus> (https://antjanus.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "nanoid": "2.0.3"
+  },
+  "devDependencies": {
+    "microbundle": "0.11.0"
+  }
 }
