@@ -1,15 +1,47 @@
-export class mainTransponder {
-  routes = {
-    GET: {},
-    POST: {}
-  };
+import * as requestMethods from './requestMethods';
+import fs from 'fs';
 
-  constructor(private ipcMain) {
+interface IObject {
+  [key:string]: any
+}
+
+interface Routes {
+  [key:string]: IObject
+}
+
+interface Handler {
+  (req: any, res: any): Promise<any>
+}
+
+interface BootstrapRoute {
+  action: string,
+  route: string,
+  handler: Handler
+}
+
+type BootstrapRoutes = BootstrapRoute[];
+
+export class mainTransponder {
+  routes: Routes = {};
+
+  constructor(private ipcMain, routes: BootstrapRoutes = []) {
+    this.initializeRoutes(routes);
     console.log("Listening to messages");
     ipcMain.on("asynchronous-message", (event, arg) => {
       this.pong(event, arg);
       this.messageHandler(event, arg);
     });
+  }
+
+  initializeRoutes(routes: any[]) {
+    const routeTypes = Object.keys(requestMethods);
+    routeTypes.forEach(requestMethod => {
+      this.routes[requestMethod] = {};
+    });
+
+    routes.forEach(route => {
+      this.register(route.action, route.route, route.handler);
+    })
   }
 
   pong(event, arg) {

@@ -6,35 +6,28 @@ An electron router that has a similar interface/usage as an HTTP server, Express
 
 In electron:
 ```ts
+import { ipcMain } from 'electron';
 import { mainTransponder } from 'electron-transponder';
 
-const routes = {
-  'api/users': {
-    func: (req, res) => {
-      let orgId = req.data.organization_id;
+// bootstrap transponder to start listening
+const transponder = mainTransponder(ipcMain);
 
-      return [
-        {
-          id: 1,
-          name: 'test'
-        }
-      ];
-    },
-    method: 'GET',
-    url: 'api/users',
-  },
-};
+// register routes -- works similarly to app.get() or app.post()
+transponder.register('GET', 'users', async (req, res) => {
+  let users = await getUsers();
 
-mainTransponder.registerRoutes(routes);
-
+  res.send(users);
+});
 ```
 
 In front-end:
 
 ```ts
-import { renderTransponder, requestMethods } from 'electron-transponder';
+import { renderTransponder } from 'electron-transponder';
 
 let users = await renderTansponder.request('GET' || requestMethods.GET, 'api/users', {
   organization_id: 3
 });
 ```
+
+## Roadmap
