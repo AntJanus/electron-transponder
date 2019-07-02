@@ -8,15 +8,20 @@
   "unpkg": "dist/index.umd.js",
   "script": {
     "build": "microbundle",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "update": "npm-check-updates -u"
   },
-  "keywords": ["electron", "pubsub"],
+  "keywords": [
+    "electron",
+    "pubsub"
+  ],
   "author": "Antonin Januska <@antjanus> (https://antjanus.com)",
   "license": "MIT",
   "dependencies": {
     "nanoid": "2.0.3"
   },
   "devDependencies": {
-    "microbundle": "0.11.0"
+    "microbundle": "0.11.0",
+    "npm-check-updates": "^3.1.13"
   }
 }
