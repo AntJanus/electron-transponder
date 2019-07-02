@@ -1,5 +1,4 @@
 import * as requestMethods from './requestMethods';
-import fs from 'fs';
 
 interface IObject {
   [key:string]: any
