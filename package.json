@@ -6,7 +6,7 @@
   "source": "./src/index.ts",
   "module": "dist/index.mjs",
   "unpkg": "dist/index.umd.js",
-  "script": {
+  "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
     "update": "npm-check-updates -u"
