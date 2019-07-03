@@ -9,7 +9,8 @@
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
-    "update": "npm-check-updates -u"
+    "update": "npm-check-updates -u",
+    "test": "jest"
   },
   "keywords": [
     "electron",
@@ -21,11 +22,12 @@
     "nanoid": "2.0.3"
   },
   "devDependencies": {
-    "ava": "^2.1.0",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
     "microbundle": "0.11.0",
     "npm-check-updates": "^3.1.13"
-  },
-  "ava": {
-
   }
 }
