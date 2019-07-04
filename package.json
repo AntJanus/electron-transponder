@@ -1,6 +1,6 @@
 {
   "name": "electron-transponder",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Lightweight library that brings a request/response-like communication to Electron",
   "main": "dist/index.js",
   "source": "./src/index.ts",
