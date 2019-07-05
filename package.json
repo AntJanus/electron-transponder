@@ -7,11 +7,13 @@
   "module": "dist/index.mjs",
   "unpkg": "dist/index.umd.js",
   "scripts": {
+    "clean": "rm -rf dist",
     "build": "microbundle",
     "dev": "microbundle watch",
     "update": "npm-check-updates -u",
     "test": "jest",
     "commit": "npx git-cz",
+    "prerelease": "npm run clean && npm run build",
     "release": "standard-version"
   },
   "keywords": [
