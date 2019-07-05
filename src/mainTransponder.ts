@@ -21,10 +21,11 @@ interface BootstrapRoute {
 type BootstrapRoutes = BootstrapRoute[];
 
 export class mainTransponder {
-  routes: Routes = {};
+  routes: Routes;
 
   constructor(private ipcMain, routes: BootstrapRoutes = []) {
     this.initializeRoutes(routes);
+
     console.log("Listening to messages");
     ipcMain.on("asynchronous-message", (event, arg) => {
       this.pong(event, arg);
@@ -34,7 +35,10 @@ export class mainTransponder {
 
   initializeRoutes(routes: any[]) {
     const routeTypes = Object.keys(requestMethods);
-    routeTypes.forEach(requestMethod => {
+
+    this.routes = {};
+
+    routeTypes.map(requestMethod => {
       this.routes[requestMethod] = {};
     });
 
