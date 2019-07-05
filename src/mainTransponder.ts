@@ -1,4 +1,4 @@
-import * as requestMethods from './requestMethods';
+import { requestMethods } from './requestMethods';
 
 interface IObject {
   [key:string]: any
