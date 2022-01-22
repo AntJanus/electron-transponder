@@ -23,7 +23,7 @@
   "author": "Antonin Januska <@antjanus> (https://antjanus.com)",
   "license": "MIT",
   "dependencies": {
-    "nanoid": "2.0.3"
+    "nanoid": "3.1.31"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
